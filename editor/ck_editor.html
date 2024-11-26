@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    	<meta charset="UTF-8">
+	    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    	<title>CKEditor 5 - Image Support</title>
+	    	<link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.css">
+	    	<style>
+	    	    	.main-container {
+	    	    	    	width: 100%;
+	    	    	    	margin-left: auto;
+	    	    	    	margin-right: auto;
+	    	    	}
+	    	</style>
+	</head>
+	<body>
+	    	<div class="main-container">
+	    	    	<div id="editor">
+	    	    	</div>
+	    	</div>
+
+	    	<script type="importmap">
+	    	    	{
+	    	    	    	"imports": {
+	    	    	    	    	"ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.3.1/ckeditor5.js",
+	    	    	    	    	"ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.3.1/"
+	    	    	    	}
+	    	    	}
+	    	</script>
+	    	<script type="module">
+	        	import {
+	        	    	ClassicEditor,
+	        	    	Essentials,
+	        	    	Paragraph,
+	        	    	Bold,
+	        	    	Italic,
+	        	    	Font,
+	        	    	Underline,
+	        	    	Strikethrough,
+	        	    	Image,
+	        	    	ImageToolbar,
+	        	    	ImageCaption,
+	        	    	ImageStyle,
+	        	    	ImageResize
+	        	} from 'ckeditor5';
+
+	        	ClassicEditor
+	            		.create(document.querySelector('#editor'), {
+	            		    	plugins: [
+	            		    	    	Essentials, 
+	            		    	    	Paragraph, 
+	            		    	    	Bold, 
+	            		    	    	Italic, 
+	            		    	    	Font, 
+	            		    	    	Underline, 
+	            		    	    	Strikethrough, 
+	            		    	    	Image, 
+	            		    	    	ImageToolbar, 
+	            		    	    	ImageCaption, 
+	            		    	    	ImageStyle, 
+	            		    	    	ImageResize
+	            		    	],
+	            		    	toolbar: [
+	            		    	    	'undo', 'redo', '|', 
+	            		    	    	'bold', 'italic', 'underline', 'strikethrough', '|',
+	            		    	    	'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+	            		    	    	'imageUpload', 'imageStyle:inline', 'imageStyle:block', 'imageStyle:side'
+	            		    	],
+	            		    	image: {
+	            		    	    	toolbar: [
+	            		    	    	    	'imageStyle:inline',
+	            		    	    	    	'imageStyle:block',
+	            		    	    	    	'imageStyle:side',
+	            		    	    	    	'|',
+	            		    	    	    	'toggleImageCaption',
+	            		    	    	    	'resizeImage:50',
+	            		    	    	    	'resizeImage:75',
+	            		    	    	    	'resizeImage:original'
+	            		    	    	]
+	            		    	}
+	            		})
+	            		.then(editor => {
+	            		    	
+	            		})
+	            		.catch(error => {
+	            		    	console.error('There was a problem initializing the editor.', error);
+	            		});
+	    	</script>
+	    	<!-- HTTP Server Reminder -->
+	    	<script>
+	    	    	window.onload = function () {
+	    	    	    	if (window.location.protocol === 'file:') {
+	    	    	    	    	alert('This sample requires an HTTP server. Please serve this file with a web server.');
+	    	    	    	}
+	    	    	};
+	    	</script>
+	</body>
+</html>
